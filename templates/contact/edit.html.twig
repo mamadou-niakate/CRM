@@ -1,0 +1,39 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello ContactController!{% endblock %}
+
+{% block body %}
+    <div class="container-fluid mt-5">
+        <table class="table table-striped">
+            <thead>
+            <tr>
+                <th scope="col">ID</th>
+                <th scope="col">Prénom</th>
+                <th scope="col">Nom</th>
+                <th scope="col">Fonction</th>
+                <th scope="col">Nom Compte</th>
+                <th scope="col">Téléphone</th>
+                <th scope="col">Email</th>
+                <th scope="col">Assigné à</th>
+                <th scope="col" colspan="3" class="text-center">Actions</th>
+            </tr>
+            </thead>
+            <tbody>
+            {% for contact in contacts %}
+                {% if contact is not null and contact  is defined %}
+                    <tr>
+                        <th scope="row">{{ contact.id }}</th>
+                        <td>{{ contact.getFirstName() }}</td>
+                        <td>{{ contact.getLastName() }}</td>
+                        <td>{{ contact.function }}</td>
+                        <td>{{ contact.account }}</td>
+                        <td>{{ contact.phone }}</td>
+                        <td>{{ contact.email }}</td>
+                        <td>{{ contact.getAssignedTo() }}</td>
+                    </tr>
+                {% endif %}
+            {% endfor %}
+            </tbody>
+        </table>
+    </div>
+{% endblock %}

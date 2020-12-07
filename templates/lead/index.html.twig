@@ -1,0 +1,56 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Prospects{% endblock %}
+
+{% block body %}
+<div class="container">
+    <button type="button" class="btn btn-light shadow float-right mt-5 mb-4  shadow p-3 mb-5 bg-white rounded">
+        <a href="{{ path('add_lead') }}"><i class="fas fa-plus"></i> Ajouter un Prospect</a>
+    </button>
+
+</div>
+<div class="container-fluid mt-5">
+    <table class="table table-striped">
+        <thead>
+        <tr>
+            <th scope="col">ID</th>
+            <th scope="col">Prènom</th>
+            <th scope="col">Nom</th>
+            <th scope="col">Email</th>
+            <th scope="col">Téléphone</th>
+            <th scope="col">Website</th>
+            <th scope="col">Industrie</th>
+            <th scope="col">Rue</th>
+            <th scope="col">Code Postale</th>
+            <th scope="col">Ville</th>
+            <th scope="col">Status</th>
+            <th scope="col">Assigné à</th>
+            <th scope="col" colspan="3">Actions</th>
+        </tr>
+        </thead>
+        <tbody>
+            {% for lead in leads %}
+                {% if lead is not null and lead  is defined %}
+                    <tr>
+                        <th scope="row">{{ lead.id }}</th>
+                        <td>{{ lead.getFirstName() }}</td>
+                        <td>{{ lead.getLastName() }}</td>
+                        <td>{{ lead.email }}</td>
+                        <td>{{ lead.phone }}</td>
+                        <td><a href="{{ lead.website }}" target="_blank">{{ lead.website }}</a></td>
+                        <td>{{ lead.industry }}</td>
+                        <td>{{ lead.street }}</td>
+                        <td>{{ lead.zipcode }}</td>
+                        <td>{{ lead.city }}</td>
+                        <td>{{ lead.status }}</td>
+                        <td>{{ lead.getAssignedTo() }}</td>
+                        <td><a href="{{ path('lead_details', {id:lead.id}) }}"><i class="far fa-eye"></i></a></td>
+                        <td><a href="{{ path('edit_lead', {id:lead.id}) }}"><i class="far fa-edit"></i></a></td>
+                        <td><a href="{{ path('remove_lead', {id:lead.id}) }}"><i class="fas fa-trash-alt"></i></a></td>
+                    </tr>
+                {% endif %}
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
+{% endblock %}

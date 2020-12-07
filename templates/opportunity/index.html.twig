@@ -1,0 +1,38 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello OpportunityController!{% endblock %}
+
+{% block body %}
+    <div class="container-fluid mt-5">
+        <table class="table table-striped">
+            <thead>
+            <tr>
+                <th scope="col">ID</th>
+                <th scope="col">Nom affaire</th>
+                <th scope="col">Compte relatif</th>
+                <th scope="col">Montant</th>
+                <th scope="col">Écheance</th>
+                <th scope="col">Assigné à</th>
+                <th scope="col">Phase de vente</th>
+                <th scope="col">Probabilité</th>
+                <th scope="col" colspan="3" class="text-center">Actions</th>
+            </tr>
+            </thead>
+            <tbody>
+            {% for opportunity in opportunities %}
+                {% if opportunity is not null and opportunity  is defined %}
+                    <tr>
+                        <th scope="row">{{ opportunity.id }}</th>
+                        <td>{{ opportunity.getAccountName() }}</td>
+                        <td>{{ opportunity.getBillingCity() }}</td>
+                        <td>{{ contact.getAssignedTo() }}</td>
+                        <td><a href="{{ path('account_details', {id:opportunity.id}) }}"><i class="far fa-eye"></i></a></td>
+                        <td><a href="{{ path('edit_account', {id:opportunity.id}) }}"><i class="far fa-edit"></i></a></td>
+                        <td><a href="{{ path('remove_account', {id:opportunity.id}) }}"><i class="fas fa-trash-alt"></i></a></td>
+                    </tr>
+                {% endif %}
+            {% endfor %}
+            </tbody>
+        </table>
+    </div>
+{% endblock %}
