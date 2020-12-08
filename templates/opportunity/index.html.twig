@@ -3,6 +3,33 @@
 {% block title %}Hello OpportunityController!{% endblock %}
 
 {% block body %}
+<div class="container-fluid">
+    <div class="row mt-5">
+        <div class="col-6">
+            <div class="row float-left">
+                <div class="col p-4">
+                    <button type="button" class="btn btn-light bg-white"> <a href="{{ path('contact') }}"><i class="fas fa-users"></i> Contacts </a> </button>
+                </div>
+                <div class="col p-4">
+                    <button type="button" class="btn btn-light bg-white"> <a href="{{ path('opportunity') }}"><i class="fas fa-building"></i> Affaires</a> </button>
+                </div>
+                <div class="col p-4">
+                    <button type="button" class="btn btn-light bg-white"> <a href="#"><i class="far fa-calendar-check"></i> Activité/Tâches</a> </button>
+                </div>
+            </div>
+        </div>
+        <div class="col-6">
+            <div class="row float-right">
+                <div class="col p-4">
+                    <button type="button" class="btn btn-light bg-white"> <a href="{{ path('add_opportunity') }}"><i class="fas fa-plus"></i> Ajouter</a> </button>
+                </div>
+                <div class="col p-4">
+                    <button type="button" class="btn btn-light bg-white"> <a href="#"><i class="fas fa-cloud-download-alt"></i> Exporter</a> </button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
     <div class="container-fluid mt-5">
         <table class="table table-striped">
             <thead>
@@ -11,7 +38,6 @@
                 <th scope="col">Nom affaire</th>
                 <th scope="col">Compte relatif</th>
                 <th scope="col">Montant</th>
-                <th scope="col">Écheance</th>
                 <th scope="col">Assigné à</th>
                 <th scope="col">Phase de vente</th>
                 <th scope="col">Probabilité</th>
@@ -23,12 +49,15 @@
                 {% if opportunity is not null and opportunity  is defined %}
                     <tr>
                         <th scope="row">{{ opportunity.id }}</th>
-                        <td>{{ opportunity.getAccountName() }}</td>
-                        <td>{{ opportunity.getBillingCity() }}</td>
-                        <td>{{ contact.getAssignedTo() }}</td>
-                        <td><a href="{{ path('account_details', {id:opportunity.id}) }}"><i class="far fa-eye"></i></a></td>
-                        <td><a href="{{ path('edit_account', {id:opportunity.id}) }}"><i class="far fa-edit"></i></a></td>
-                        <td><a href="{{ path('remove_account', {id:opportunity.id}) }}"><i class="fas fa-trash-alt"></i></a></td>
+                        <td>{{ opportunity.getName() }}</td>
+                        <td>{{ opportunity.account }}</td>
+                        <td>{{ opportunity.amount }}€</td>
+                        <td>{{ opportunity.getAssignedTo() }}</td>
+                        <td>{{ opportunity.status }}</td>
+                        <td>{{ opportunity.probability ? opportunity.probability : '0' }}%</td>
+                        <td><a href="{{ path('opportunity_details', {id:opportunity.id}) }}"><i class="far fa-eye"></i></a></td>
+                        <td><a href="{{ path('edit_opportunity', {id:opportunity.id}) }}"><i class="far fa-edit"></i></a></td>
+                        <td><a href="{{ path('remove_opportunity', {id:opportunity.id}) }}"><i class="fas fa-trash-alt"></i></a></td>
                     </tr>
                 {% endif %}
             {% endfor %}

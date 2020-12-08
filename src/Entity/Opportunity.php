@@ -55,6 +55,16 @@ class Opportunity
      */
     private $salesphase;
 
+    /**
+     * @ORM\Column(type="string", length=255)
+     */
+    private $name;
+
+    /**
+     * @ORM\Column(type="integer", nullable=true)
+     */
+    private $probability;
+
     public function __construct()
     {
         $this->salesphase = new ArrayCollection();
@@ -163,6 +173,30 @@ class Opportunity
                 $salesphase->setOpportunity(null);
             }
         }
+
+        return $this;
+    }
+
+    public function getName(): ?string
+    {
+        return $this->name;
+    }
+
+    public function setName(string $name): self
+    {
+        $this->name = $name;
+
+        return $this;
+    }
+
+    public function getProbability(): ?int
+    {
+        return $this->probability;
+    }
+
+    public function setProbability(?int $probability): self
+    {
+        $this->probability = $probability;
 
         return $this;
     }

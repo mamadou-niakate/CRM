@@ -4,6 +4,7 @@ namespace App\Form;
 
 use App\Entity\Opportunity;
 use Symfony\Component\Form\AbstractType;
+use Symfony\Component\Form\Extension\Core\Type\DateType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 
@@ -13,11 +14,13 @@ class OpportunityFormType extends AbstractType
     {
         $builder
             ->add('amount')
-            ->add('date_due')
+            ->add('date_due', DateType::class)
             ->add('assigned_to')
             ->add('account')
-            ->add('status')
             ->add('lead')
+            ->add('name')
+            ->add('status')
+            ->add('probability')
         ;
     }
 

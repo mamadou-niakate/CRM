@@ -9,30 +9,38 @@
                 <div class="card bg-light mb-3 mt-5">
                     <div class="card-body">
                         {{ form_start(form) }}
-                        <div class="card-header mb-3"><span class="display-4">Ajouter un Compte</span></div>
+                        <div class="card-header mb-3"><span class="display-4">Ajouter une Affaire</span></div>
                         <div class="form_group">
-                            <div class="col-md-12 mb-3"> {{ form_row(form.account_name, {'attr': {'class': 'form-control'}}) }} </div>
+                            <div class="col-md-12 mb-3"> {{ form_row(form.name, {'attr': {'class': 'form-control'}}) }} </div>
                         </div>
                         <div class="form_group">
-                            <div class="col-md-12 mb-3"> {{ form_row(form.billing_city, {'attr': {'class': 'form-control'}}) }} </div>
+                            <div class="col-md-12 mb-3"> {{ form_row(form.amount, {'attr': {'class': 'form-control'}}) }} </div>
                         </div>
                         <div class="form_group">
-                            <div class="col-md-12 mb-3"> {{ form_row(form.website, {'attr': {'class': 'form-control'}}) }} </div>
+                            <div class="col-md-12 mb-3"> {{ form_row(form.status, {'attr': {'class': 'form-control'}}) }} </div>
                         </div>
                         <div class="form_group">
-                            <div class="col-md-12 mb-3"> {{ form_row(form.office_phone, {'attr': {'class': 'form-control'}}) }} </div>
+                            <div class="col-md-12 mb-3"> {{ form_row(form.date_due, {'attr': {'class': 'form-control'}}) }} </div>
+                        </div>
+                        <div class="form_group">
+                            <div class="col-md-12 mb-3"> {{ form_row(form.account, {'attr': {'class': 'form-control'}}) }} </div>
+                        </div>
+                        <div class="form_group">
+                            <div class="col-md-12 mb-3"> {{ form_row(form.lead, {'attr': {'class': 'form-control'}}) }} </div>
                         </div>
                         <div class="form_group">
                             <div class="col-md-12 mb-3"> {{ form_row(form.assigned_to, {'attr': {'class': 'form-control'}}) }} </div>
+                        </div>
+                        <div class="form_group">
+                            <div class="col-md-12 mb-3"> {{ form_row(form.probability, {'attr': {'class': 'form-control'}}) }} </div>
                         </div>
                         <div class="form-group">
                             <div class="col-md-8 col-md-offset-4" style="margin-top:5px;">
                                 <button type="submit" class="btn btn-primary">
                                     <i class="fa fa-btn fa-user"></i> Register
-                                    <!--a href="{{ path('account') }}" style="color: #f5f7ff"><i class="fa fa-btn fa-user"></i> Register</a-->
                                 </button>
                                 <button type="button" class="btn btn-primary">
-                                    <a href="{{ path('account') }}" style="color: #f5f7ff"><i class="far fa-times-circle"></i> Annuler</a>
+                                    <a href="{{ path('opportunity') }}" style="color: #f5f7ff"><i class="far fa-times-circle"></i> Annuler</a>
                                 </button>
                             </div>
                         </div>
