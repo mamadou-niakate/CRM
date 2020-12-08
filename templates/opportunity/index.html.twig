@@ -14,7 +14,7 @@
                     <button type="button" class="btn btn-light bg-white"> <a href="{{ path('opportunity') }}"><i class="fas fa-building"></i> Affaires</a> </button>
                 </div>
                 <div class="col p-4">
-                    <button type="button" class="btn btn-light bg-white"> <a href="#"><i class="far fa-calendar-check"></i> Activité/Tâches</a> </button>
+                    <button type="button" class="btn btn-light bg-white"> <a href="{{ path('interaction') }}"><i class="far fa-calendar-check"></i> Activité/Tâches</a> </button>
                 </div>
             </div>
         </div>
@@ -38,6 +38,7 @@
                 <th scope="col">Nom affaire</th>
                 <th scope="col">Compte relatif</th>
                 <th scope="col">Montant</th>
+                <th scope="col">Écheance</th>
                 <th scope="col">Assigné à</th>
                 <th scope="col">Phase de vente</th>
                 <th scope="col">Probabilité</th>
@@ -52,6 +53,7 @@
                         <td>{{ opportunity.getName() }}</td>
                         <td>{{ opportunity.account }}</td>
                         <td>{{ opportunity.amount }}€</td>
+                        <td>{{ opportunity.getDateDue() | date('D M Y') }}</td>
                         <td>{{ opportunity.getAssignedTo() }}</td>
                         <td>{{ opportunity.status }}</td>
                         <td>{{ opportunity.probability ? opportunity.probability : '0' }}%</td>

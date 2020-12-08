@@ -5,20 +5,20 @@
 
 {% block body %}
     <div class="container">
-        <span>
+        <span class="display-4 alert-warning" >
             Dashboard
         </span>
         <canvas id="myChart" width="400" height="200"></canvas>
     </div>
 {% endblock %}
 
-{% block javascripts %}
+{% block javascript %}
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.min.js" integrity="sha512-d9xgZrVZpmmQlfonhQUvTR7lMPtO7NkZMkA0ABN3PHCbKA5nqylQ/yWlFAyY6hYgdF1Qh6nYiuADWwKB4C2WSw==" crossorigin="anonymous"></script>
-
     <script>
         var ctx = document.getElementById('myChart').getContext('2d');
-        var myChart = new Chart(ctx, {
-            type: 'pie',
+        var myChart = new Chart(ctx,
+        {
+            type: 'bar',
             data: {
                 labels: ['Red', 'Blue', 'Yellow', 'Green', 'Purple', 'Orange'],
                 datasets: [{

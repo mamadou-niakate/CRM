@@ -1,0 +1,51 @@
+{% extends 'base.html.twig' %}
+
+{% block title %} Ajouter {% endblock %}
+
+{% block body %}
+    <div class="container">
+        <div class="row">
+            <div class="col-md-10 ml-md-auto">
+                <div class="card bg-light mb-3 mt-5">
+                    <div class="card-body">
+                        {{ form_start(form) }}
+                        <div class="card-header mb-3"><span class="display-4">Ajouter un Contact</span></div>
+                        <div class="form_group">
+                            <div class="col-md-12 mb-3"> {{ form_row(form.type, {'attr': {'class': 'form-control'}}) }} </div>
+                        </div>
+                        <div class="form_group">
+                            <div class="col-md-12 mb-3"> {{ form_row(form.status, {'attr': {'class': 'form-control'}}) }} </div>
+                        </div>
+                        <div class="form_group">
+                            <div class="col-md-12 mb-3"> {{ form_row(form.account, {'attr': {'class': 'form-control'}}) }} </div>
+                        </div>
+                        <div class="form_group">
+                            <div class="col-md-12 mb-3"> {{ form_row(form.assigned_to, {'attr': {'class': 'form-control'}}) }} </div>
+                        </div>
+                        <div class="form_group">
+                            <div class="col-md-12 mb-3"> {{ form_row(form.description, {'attr': {'class': 'form-control'}}) }} </div>
+                        </div>
+                        <div class="form_group">
+                            <div class="col-md-12 mb-3"> {{ form_row(form.created_date, {'attr': {'class': 'form-control'}}) }} </div>
+                        </div>
+                        <div class="form_group">
+                            <div class="col-md-12 mb-3"> {{ form_row(form.date_due, {'attr': {'class': 'form-control'}}) }} </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="col-md-8 col-md-offset-4" style="margin-top:5px;">
+                                <button type="submit" class="btn btn-primary">
+                                    <i class="fa fa-btn fa-user"></i> Register
+                                    <!--a href="{{ path('account') }}" style="color: #f5f7ff"><i class="fa fa-btn fa-user"></i> Register</a-->
+                                </button>
+                                <button type="button" class="btn btn-primary">
+                                    <a href="{{ path('contact') }}" style="color: #f5f7ff"><i class="far fa-times-circle"></i> Annuler</a>
+                                </button>
+                            </div>
+                        </div>
+                        {{ form_end(form) }}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}
