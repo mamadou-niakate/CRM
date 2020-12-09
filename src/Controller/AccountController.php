@@ -6,6 +6,7 @@ use App\Entity\Account;
 use App\Form\AccountFormType;
 use App\Repository\AccountRepository;
 use App\Repository\ContactRepository;
+use App\Repository\InteractionRepository;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
@@ -17,13 +18,15 @@ class AccountController extends AbstractController
     private $accountRepository;
     private $entityManager;
     private $contactRepository;
+    private $interactionRepository;
 
-    public function __construct(AccountRepository $accountRepository,
+    public function __construct(AccountRepository $accountRepository, InteractionRepository $interactionRepository,
                                 EntityManagerInterface $entityManager,ContactRepository $contactRepository)
     {
+        $this->interactionRepository = $interactionRepository;
         $this->accountRepository = $accountRepository;
-        $this->entityManager = $entityManager;
         $this->contactRepository = $contactRepository;
+        $this->entityManager = $entityManager;
     }
 
     /**
@@ -107,7 +110,7 @@ class AccountController extends AbstractController
     {
         return $this->render('account/details.html.twig', [
             'account' => $this->accountRepository->find($account),
-            'contacts' => $this->contactRepository->findBy(['account' => $account])
+            'contacts' => $this->contactRepository->findBy(['account' => $account]),
         ]);
     }
 }

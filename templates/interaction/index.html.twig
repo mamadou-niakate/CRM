@@ -9,9 +9,6 @@
                 <div class="col p-4">
                     <button type="button" class="btn btn-light bg-white"> <a href="{{ path('add_interaction') }}"><i class="fas fa-plus"></i> Ajouter</a> </button>
                 </div>
-                <div class="col p-4">
-                    <button type="button" class="btn btn-light bg-white"> <a href="#"><i class="fas fa-cloud-download-alt"></i> Exporter</a> </button>
-                </div>
             </div>
         </div>
     </div>
@@ -31,14 +28,19 @@
                                 <h3 class="card-title alert-danger">{{ interaction.type }} : {{ interaction.status }}</h3>
                             {% endif %}
                             <p class="card-text"> Déroulement : {{ interaction.getCreatedDate() | date('d-m-Y') }} - {{ interaction.getDateDue() | date('d-m-Y') }}</p>
-                            <p class="card-text"> Entreprise : {{ interaction.account }}</p>
+                            <p class="card-text"> Entreprise : {{ interaction.contact.account }}</p>
+                            <p class="card-text"> Contact : {{ interaction.contact }}</p>
                             <p class="card-text"> Assigné à : {{ interaction.getAssignedTo() }}</p>
                             <p class="card-text"> Notes :  {{ interaction.description }}</p>
                         </div>
                         <div class="card-footer">
-                            <div class="row">
-                                <a href="{{ path('edit_interaction', {id:interaction.id}) }}" class="col float-left"><i class="fas fa-edit"></i></a>
-                                <a href="{{ path('remove_interaction', {id:interaction.id}) }}" class="col float-right"><i class="fas fa-trash-alt"></i></a>
+                            <div class="float-left">
+                                <a href="{{ path('edit_interaction', {id:interaction.id}) }}" class="ml-4">
+                                    <i class="fas fa-edit" style="color: teal"></i> Éditer
+                                </a>
+                                <a href="{{ path('remove_interaction', {id:interaction.id}) }}" class="ml-4">
+                                    <i class="fas fa-trash-alt" style="color: red"></i> Supprimer
+                                </a>
                             </div>
                         </div>
                     </div>

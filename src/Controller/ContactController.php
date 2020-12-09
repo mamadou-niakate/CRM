@@ -8,6 +8,7 @@ use App\Form\AccountFormType;
 use App\Form\ContactFormType;
 use App\Repository\AccountRepository;
 use App\Repository\ContactRepository;
+use App\Repository\InteractionRepository;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
@@ -16,12 +17,15 @@ use Symfony\Component\Routing\Annotation\Route;
 
 class ContactController extends AbstractController
 {
+    private $interactionRepository;
     private $accountRepository;
     private $contactRepository;
     private $entityManager;
 
-    public function __construct(ContactRepository $contactRepository, AccountRepository $accountRepository, EntityManagerInterface $entityManager)
+    public function __construct(ContactRepository $contactRepository, AccountRepository $accountRepository,
+                                EntityManagerInterface $entityManager, InteractionRepository $interactionRepository)
     {
+        $this->interactionRepository = $interactionRepository;
         $this->contactRepository = $contactRepository;
         $this->accountRepository = $accountRepository;
         $this->entityManager = $entityManager;
@@ -103,8 +107,10 @@ class ContactController extends AbstractController
      */
     public function details(Contact $contact)
     {
+        $contact_interactions = $this->interactionRepository->findBy(['contact' => $contact]);
         return $this->render('contact/details.html.twig', [
-            'contact' => $this->contactRepository->find($contact)
+            'contact' => $this->contactRepository->find($contact),
+            'contact_interactions' => $contact_interactions
         ]);
     }
 

@@ -17,7 +17,7 @@ class InteractionFormType extends AbstractType
             ->add('date_due', DateType::class)
             ->add('description')
             ->add('assigned_to')
-            ->add('account')
+            ->add('contact')
             ->add('status')
             ->add('type')
         ;

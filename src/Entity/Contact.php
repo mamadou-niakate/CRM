@@ -3,6 +3,8 @@
 namespace App\Entity;
 
 use App\Repository\ContactRepository;
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
@@ -52,6 +54,16 @@ class Contact
      * @ORM\ManyToOne(targetEntity=Account::class, inversedBy="contacts")
      */
     private $account;
+
+    /**
+     * @ORM\OneToMany(targetEntity=Interaction::class, mappedBy="contact")
+     */
+    private $interactions;
+
+    public function __construct()
+    {
+        $this->interactions = new ArrayCollection();
+    }
 
     public function getId(): ?int
     {
@@ -140,5 +152,40 @@ class Contact
         $this->account = $account;
 
         return $this;
+    }
+
+    /**
+     * @return Collection|Interaction[]
+     */
+    public function getInteractions(): Collection
+    {
+        return $this->interactions;
+    }
+
+    public function addInteraction(Interaction $interaction): self
+    {
+        if (!$this->interactions->contains($interaction)) {
+            $this->interactions[] = $interaction;
+            $interaction->setContact($this);
+        }
+
+        return $this;
+    }
+
+    public function removeInteraction(Interaction $interaction): self
+    {
+        if ($this->interactions->removeElement($interaction)) {
+            // set the owning side to null (unless already changed)
+            if ($interaction->getContact() === $this) {
+                $interaction->setContact(null);
+            }
+        }
+
+        return $this;
+    }
+
+    public function __toString()
+    {
+        return $this->first_name . ' ' . $this->last_name;
     }
 }

@@ -54,6 +54,11 @@ class Interaction
      */
     private $type;
 
+    /**
+     * @ORM\ManyToOne(targetEntity=Contact::class, inversedBy="interactions")
+     */
+    private $contact;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -139,6 +144,18 @@ class Interaction
     public function setType(?InteractionType $type): self
     {
         $this->type = $type;
+
+        return $this;
+    }
+
+    public function getContact(): ?Contact
+    {
+        return $this->contact;
+    }
+
+    public function setContact(?Contact $contact): self
+    {
+        $this->contact = $contact;
 
         return $this;
     }

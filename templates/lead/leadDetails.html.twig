@@ -6,24 +6,23 @@
     <div class="container mt-5">
         <div class="card shadow-none p-3 mb-5 bg-light rounded">
             <div class="card-body">
-                <h2 class="card-title">{{ lead.getFirstName() }} {{ lead.getLastName() }}</h2>
-                <!--p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p-->
+                <h2 class="card-title text-capitalize">{{ lead.getFirstName() }} {{ lead.getLastName() }}</h2>
             </div>
             <ul class="list-group list-group-flush">
                 <li class="list-group-item">
-                    <h4 class="col">Téléphone : {{ lead.phone }}</h4> <br/>
-                    <h4 class="col">Email : {{ lead.email }}</h4>
+                    <h4 class="col"><span class="font-weight-bold">Téléphone :</span> {{ lead.phone }}</h4> <br/>
+                    <h4 class="col"><span class="font-weight-bold">Email :</span> {{ lead.email }}</h4>
                 </li>
                 <li class="list-group-item">
-                    <h4 class="col"> Website : {{ lead.website }}</h4> <br/>
-                    <h4 class="col"> Industry : {{ lead.industry }}</h4>
+                    <h4 class="col"> <span class="font-weight-bold">Website :</span> <a href="{{ lead.website }}" target="_blank">{{ lead.website }}</a></h4> <br/>
+                    <h4 class="col"> <span class="font-weight-bold">Industry :</span> {{ lead.industry }}</h4>
                 </li>
                 <li class="list-group-item">
-                    <h4 class="col"> Adresse : {{ lead.street }} {{ lead.zipcode }} {{ lead.city }}</h4>
+                    <h4 class="col"> <span class="font-weight-bold">Adresse :</span> {{ lead.street }} {{ lead.zipcode }} {{ lead.city }}</h4>
                 </li>
                 <li class="list-group-item">
-                    <h4 class="col"> Status : {{ lead.status }}</h4> <br/>
-                    <h4 class="col"> Assigné à : {{ lead.getAssignedTo() }}</h4>
+                    <h4 class="col"> <span class="font-weight-bold">Status :</span> {{ lead.status }}</h4> <br/>
+                    <h4 class="col"> <span class="font-weight-bold">Assigné à :</span> {{ lead.getAssignedTo() }}</h4>
                 </li>
             </ul>
             <div class="card-body">
