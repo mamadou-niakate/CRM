@@ -19,6 +19,18 @@ class InteractionRepository extends ServiceEntityRepository
         parent::__construct($registry, Interaction::class);
     }
 
+    public function getInteractionForCalendar($start,$end)
+    {
+        return $this->createQueryBuilder('interaction')
+        ->andWhere('interaction.created_date BETWEEN :start AND :end 
+                    OR interaction.date_due BETWEEN :start AND :end 
+                    AND :start < :end')
+        ->setParameter('start', $start->format('Y-m-d H:i:s'))
+        ->setParameter('end', $end->format('Y-m-d H:i:s'))
+        ->getQuery()
+        ->getResult();
+    }
+
     // /**
     //  * @return Interaction[] Returns an array of Interaction objects
     //  */
