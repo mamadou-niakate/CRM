@@ -1,13 +1,17 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Hello InteractionController!{% endblock %}
+{% block title %} Interaction {% endblock %}
 
 {% block body %}
     <div class="container">
         <div class="col-6">
             <div class="row float-right">
                 <div class="col p-4">
-                    <button type="button" class="btn btn-light bg-white"> <a href="{{ path('add_interaction') }}"><i class="fas fa-plus"></i> Ajouter</a> </button>
+                    <a href="{{ path('add_interaction') }}">
+                    <button type="button" class="btn btn-light shadow float-right shadow bg-white rounded">
+                        <span class="template_btn"><i class="fas fa-plus"></i> Ajouter</span>
+                    </button>
+                    </a>
                 </div>
             </div>
         </div>

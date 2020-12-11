@@ -15,15 +15,15 @@
                 </li>
                 <li class="list-group-item">
                     <h4 class="col"> Fonction : {{ contact.function }}</h4> <br/>
-                    <h4 class="col"> Nom Compte : {{ contact.account }}</h4>
+                    <h4 class="col"> Nom Compte : <a href="{{ path('account_details',{id:contact.account.id}) }}">{{ contact.account }}</a></h4>
                 </li>
                 <li class="list-group-item">
                     <h4 class="col"> Assigné à : {{ contact.getAssignedTo() }}</h4>
                 </li>
             </ul>
             <div class="card-body">
-                <button type="button" class="btn btn-primary"><a href="{{ path('contact') }}" class="card-link" style="color: #f5f7ff">Retour</a></button>
-                <button type="button" class="btn btn-primary"><a href="{{ path('remove_contact', {id:contact.id}) }}" style="color: #f5f7ff" class="card-link">Supprimer</a></button>
+                <button type="button" class="btn btn-info"><a href="{{ path('contact') }}" class="card-link" style="color: #f5f7ff">Retour</a></button>
+                <button type="button" class="btn btn-danger"><a href="{{ path('remove_contact', {id:contact.id}) }}" style="color: #f5f7ff" class="card-link">Supprimer</a></button>
             </div>
         </div>
         <span class="display-4">Interactions</span>
@@ -50,10 +50,10 @@
                         <div class="card-footer">
                             <div class="float-left">
                                 <a href="{{ path('edit_interaction', {id:interaction.id}) }}" class="ml-4">
-                                    <i class="fas fa-edit" style="color: teal"></i> Éditer
+                                    <i class="fas fa-edit"></i> Éditer
                                 </a>
                                 <a href="{{ path('remove_interaction', {id:interaction.id}) }}" class="ml-4">
-                                    <i class="fas fa-trash-alt" style="color: red"></i> Supprimer
+                                    <i class="fas fa-trash-alt"></i> Supprimer
                                 </a>
                             </div>
                         </div>

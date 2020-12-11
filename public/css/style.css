@@ -74,6 +74,7 @@ a:focus {
     color: #fff;
     background: #F8BE12;
 }
+
 .sidebar-nav > li > a i.fa {
     font-size: 24px;
     width: 60px;
@@ -239,4 +240,26 @@ a:focus {
         position: relative;
         margin-right: 250px;
     }
+}
+
+/*****************TEMPLATES*******************/
+.template_btn {
+    color: #4029D3;
+}
+
+
+.template_btn:hover {
+    text-decoration: none;
+}
+
+.fa-trash-alt {
+    color: red;
+}
+
+.fa-edit {
+    color: teal;
+}
+
+.fa-eye {
+    color: #0a0a0a;
 }

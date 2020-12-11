@@ -91,7 +91,7 @@ class LeadController extends AbstractController
             return $this->redirectToRoute('lead');
         }
 
-        return $this->render('lead/edit.html.twig', [
+        return $this->render('lead/addLead.html.twig', [
             'form' => $form->createView()
         ]);
     }

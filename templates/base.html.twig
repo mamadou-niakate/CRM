@@ -19,72 +19,43 @@
         {% endblock %}
     </head>
     <body>
-        <!--nav class="navbar navbar-expand-lg navbar-light bg-light">
-            <a class="navbar-brand" href="#">Easy-CRM</a>
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarText">
-                <ul class="navbar-nav mr-auto">
-                    <li class="nav-item active"> <a class="nav-link" href="{#{ path('dashboard') }}"> Dashboard <span class="sr-only">(current)</span></a> </li>
-                    <li class="nav-item"> <a class="nav-link" href="{{ path('lead') }}">Prospects</a> </li>
-                    <li class="nav-item"> <a class="nav-link" href="{{ path('account') }}">Comptes</a> </li>
-                    <li class="nav-item"> <a class="nav-link" href="{{ path('contact') }}">Contacts</a> </li>
-                    <li class="nav-item"> <a class="nav-link" href="{{ path('opportunity') }}">Opportunités</a> </li>
-                    <li class="nav-item"> <a class="nav-link" href="{{ path('interaction') }}">Tâches</a> </li>
-                    <li class="nav-item"> <a class="nav-link" href="{{ path('calendar') }#}">Calendrier</a> </li>
-                </ul>
-                <span class="navbar-text"> <i class="fas fa-user-circle"></i> </span>
-            </div>
-        </nav-->
-
-                <div id="wrapper">
-                    <aside id="sidebar-wrapper">
-                        <div class="sidebar-brand">
-                            <h2>Logo</h2>
-                        </div>
-                        <ul class="sidebar-nav">
-                            <li class="active">
-                                <a href="{{ path('dashboard') }}"><i class="fa fa-home"></i>Dashboard</a>
-                            </li>
-                            <li>
-                                <a href="{{ path('lead') }}"><i class="fa fa-users"></i>Propsects</a>
-                            </li>
-                            <li>
-                                <a href="{{ path('account') }}"><i class="fa fa-building"></i>Comptes</a>
-                            </li>
-                            <li>
-                                <a href="{{ path('contact') }}"><i class="fa fa-users"></i>Contacts</a>
-                            </li>
-                            <li>
-                                <a href="{{ path('opportunity') }}"><i class="fa fa-building"></i>Affaires</a>
-                            </li>
-                            <li>
-                                <a href="{{ path('interaction') }}"><i class="fa fa-tasks"></i>Activités/Tâches</a>
-                            </li>
-                            <li>
-                                <a href="{{ path('calendar') }}"><i class="fa fa-calendar"></i>Calendrier</a>
-                            </li>
-                        </ul>
-                    </aside>
-
-                    <div id="navbar-wrapper">
-                        <nav class="navbar navbar-inverse">
-                            <div class="container-fluid">
-                                <div class="navbar-header">
-                                    <a href="#" class="navbar-brand" id="sidebar-toggle"><i class="fa fa-bars"></i></a>
-                                </div>
-                            </div>
-                        </nav>
-                    </div>
-
-                    <div class="">
-                        {% block body %}
-                        {% endblock %}
-                    </div>
-
+        <div id="wrapper">
+            <aside id="sidebar-wrapper">
+                <div class="sidebar-brand">
+                    <h2>Easy-CRM</h2>
                 </div>
-            <script src="{{ asset('js/script.js') }}"></script>
+                <ul class="sidebar-nav" id="sidebar-nav">
+                    <li class="active"><a href="{{ path('dashboard') }}"><i class="fa fa-home"></i>Dashboard</a></li>
+                    <li><a href="{{ path('lead') }}"><i class="fas fa-users-cog mr-4"></i>Propsects</a></li>
+                    <li><a href="{{ path('account') }}"><i class="fa fa-building"></i>Comptes</a></li>
+                    <li><a href="{{ path('contact') }}"><i class="fa fa-users"></i>Contacts</a></li>
+                    <li><a href="{{ path('opportunity') }}"><i class="fa fa-building"></i>Affaires</a></li>
+                    <li><a href="{{ path('interaction') }}"><i class="fa fa-tasks"></i>Activités/Tâches</a></li>
+                    <li><a href="{{ path('calendar') }}"><i class="fa fa-calendar"></i>Calendrier</a></li>
+                </ul>
+            </aside>
+
+            <div id="navbar-wrapper">
+                <nav class="navbar navbar-inverse">
+                    <div class="container-fluid">
+                        <div class="navbar-header">
+                            <a href="#" class="navbar-brand" id="sidebar-toggle"><i class="fa fa-bars"></i></a>
+                        </div>
+                        <div>
+                            <a href="{{ path('app_login') }}"><i class="fa fa-user"></i></a>
+                        </div>
+                    </div>
+                </nav>
+            </div>
+
+            <div class="">
+                {% block body %}
+                {% endblock %}
+            </div>
+
+        </div>
+        <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+        <script src="{{ asset('js/script.js') }}"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.1/js/bootstrap.min.js"></script>
         <script src="https://cdn.jsdelivr.net/npm/@fullcalendar/core@4.1.0/main.min.js"></script>

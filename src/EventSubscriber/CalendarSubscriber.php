@@ -36,9 +36,19 @@ class CalendarSubscriber implements EventSubscriberInterface
                 $interaction->getDateDue()
             );
 
+            if($interaction->getType() == 'Phone') {
+                $color = '#175826';
+            }elseif ($interaction->getType() == 'Email') {
+                $color = '#004085';
+            }elseif ($interaction->getType() == 'Meeting'){
+                $color = '#856404';
+            }else {
+                $color = '#17d8bb';
+            }
+
             $interactionEvent->setOptions([
-                'backgroundColor' => 'teal',
-                'color' => 'teal',
+                'backgroundColor' => $color,
+                'color' => $color,
             ]);
 
             $interactionEvent->addOption(

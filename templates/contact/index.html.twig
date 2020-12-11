@@ -4,51 +4,64 @@
 
 {% block body %}
     <div class="container-fluid">
-        <div class="col-6">
+        <div class="col-6 float-right">
             <div class="row float-right">
                 <div class="col p-4">
-                    <button type="button" class="btn btn-light bg-white"> <a href="{{ path('add_contact') }}"><i class="fas fa-plus"></i> Ajouter</a> </button>
+                    <a href="{{ path('add_contact') }}">
+                        <button type="button" class="btn btn-light shadow float-right shadow bg-white rounded">
+                            <span class="template_btn"><i class="fas fa-plus"></i> Ajouter</span>
+                        </button>
+                    </a>
                 </div>
                 <div class="col p-4">
-                    <button type="button" class="btn btn-light bg-white"> <a href="#"><i class="fas fa-cloud-download-alt"></i> Exporter</a> </button>
+                    <a href="#">
+                    <button type="button" class="btn btn-light shadow float-right shadow bg-white rounded">
+                        <span class="template_btn"><i class="fas fa-cloud-download-alt"></i> Exporter</span>
+                    </button>
+                    </a>
                 </div>
             </div>
         </div>
     </div>
-    <div class="container-fluid mt-5">
-        <table class="table table-striped">
-            <thead>
-            <tr>
-                <th scope="col">ID</th>
-                <th scope="col">Prénom</th>
-                <th scope="col">Nom</th>
-                <th scope="col">Fonction</th>
-                <th scope="col">Nom Compte</th>
-                <th scope="col">Téléphone</th>
-                <th scope="col">Email</th>
-                <th scope="col">Assigné à</th>
-                <th scope="col" colspan="3" class="text-center">Actions</th>
-            </tr>
-            </thead>
-            <tbody>
-            {% for contact in contacts %}
-                {% if contact is not null and contact  is defined %}
+    <div class="container-fluid">
+        <div class="table-responsive">
+            <fieldset>
+                <caption><h2>Liste des Contacts</h2></caption>
+                <table class="table table-striped">
+                    <thead class="thead-dark">
                     <tr>
-                        <th scope="row">{{ contact.id }}</th>
-                        <td>{{ contact.getFirstName() }}</td>
-                        <td>{{ contact.getLastName() }}</td>
-                        <td>{{ contact.function }}</td>
-                        <td>{{ contact.account }}</td>
-                        <td>{{ contact.phone }}</td>
-                        <td>{{ contact.email }}</td>
-                        <td>{{ contact.getAssignedTo() }}</td>
-                        <td><a href="{{ path('contact_details', {id:contact.id}) }}"><i class="far fa-eye"></i></a></td>
-                        <td><a href="{{ path('edit_contact', {id:contact.id}) }}"><i class="far fa-edit"></i></a></td>
-                        <td><a href="{{ path('remove_contact', {id:contact.id}) }}"><i class="fas fa-trash-alt"></i></a></td>
+                        <th scope="col">ID</th>
+                        <th scope="col">Prénom</th>
+                        <th scope="col">Nom</th>
+                        <th scope="col">Fonction</th>
+                        <th scope="col">Nom Compte</th>
+                        <th scope="col">Téléphone</th>
+                        <th scope="col">Email</th>
+                        <th scope="col">Assigné à</th>
+                        <th scope="col" colspan="3" class="text-center">Actions</th>
                     </tr>
-                {% endif %}
-            {% endfor %}
-            </tbody>
-        </table>
+                    </thead>
+                    <tbody>
+                    {% for contact in contacts %}
+                        {% if contact is not null and contact  is defined %}
+                            <tr>
+                                <th scope="row">{{ contact.id }}</th>
+                                <td>{{ contact.getFirstName() }}</td>
+                                <td>{{ contact.getLastName() }}</td>
+                                <td>{{ contact.function }}</td>
+                                <td>{{ contact.account }}</td>
+                                <td>{{ contact.phone }}</td>
+                                <td>{{ contact.email }}</td>
+                                <td>{{ contact.getAssignedTo() }}</td>
+                                <td><a href="{{ path('contact_details', {id:contact.id}) }}"><i class="far fa-eye"></i></a></td>
+                                <td><a href="{{ path('edit_contact', {id:contact.id}) }}"><i class="far fa-edit"></i></a></td>
+                                <td><a href="{{ path('remove_contact', {id:contact.id}) }}"><i class="fas fa-trash-alt"></i></a></td>
+                            </tr>
+                        {% endif %}
+                    {% endfor %}
+                    </tbody>
+                </table>
+            </fieldset>
+        </div>
     </div>
 {% endblock %}

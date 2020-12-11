@@ -11,23 +11,35 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="b886c5be-b35b-4468-9e9e-99ccc9e82926" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/config/routes/calendar.yaml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/js/script.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Controller/CalendarController.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/EventSubscriber/CalendarSubscriber.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/calendar/index.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/easy-crm.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/easy-crm.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/php.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/php.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/images/logo.png" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/composer.json" beforeDir="false" afterPath="$PROJECT_DIR$/composer.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/composer.lock" beforeDir="false" afterPath="$PROJECT_DIR$/composer.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config/bundles.php" beforeDir="false" afterPath="$PROJECT_DIR$/config/bundles.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Form/InteractionFormType.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Form/InteractionFormType.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Repository/InteractionRepository.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Repository/InteractionRepository.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/symfony.lock" beforeDir="false" afterPath="$PROJECT_DIR$/symfony.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/config/packages/security.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/config/packages/security.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/config/services.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/config/services.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/css/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/public/css/style.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/js/script.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/js/script.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Controller/LeadController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/LeadController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/EventSubscriber/CalendarSubscriber.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/EventSubscriber/CalendarSubscriber.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Security/EasyCRMAuthenticator.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Security/EasyCRMAuthenticator.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/account/add.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/account/add.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/account/details.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/account/details.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/account/edit.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/public/js/charjs.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/templates/account/index.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/account/index.html.twig" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/templates/base.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/base.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/calendar/index.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/calendar/index.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/contact/add.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/contact/add.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/contact/details.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/contact/details.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/contact/index.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/contact/index.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/dashboard/index.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/dashboard/index.html.twig" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/templates/interaction/add.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/interaction/add.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/interaction/index.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/interaction/index.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/lead/addLead.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/lead/addLead.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/lead/edit.html.twig" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/lead/index.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/lead/index.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/lead/leadDetails.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/lead/leadDetails.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/opportunity/add.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/opportunity/add.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/opportunity/details.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/opportunity/details.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/opportunity/index.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/opportunity/index.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/security/login.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/security/login.html.twig" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -173,7 +185,7 @@
     <property name="ASKED_SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/public/images" />
     <property name="list.type.of.created.stylesheet" value="CSS" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
@@ -185,6 +197,9 @@
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
   <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/public/images" />
+    </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/public/css" />
     </key>
@@ -206,7 +221,8 @@
       <workItem from="1607032796715" duration="9854000" />
       <workItem from="1607088994903" duration="270000" />
       <workItem from="1607089266541" duration="38129000" />
-      <workItem from="1607420064417" duration="48156000" />
+      <workItem from="1607420064417" duration="68662000" />
+      <workItem from="1607679594494" duration="15631000" />
     </task>
     <servers />
   </component>
@@ -245,6 +261,10 @@
       <screen x="72" y="27" width="1848" height="1053" />
     </state>
     <state x="687" y="263" width="618" height="580" key="find.popup/72.27.1848.1053@72.27.1848.1053" timestamp="1607129316372" />
+    <state x="659" y="259" width="672" height="678" key="search.everywhere.popup" timestamp="1607612331842">
+      <screen x="72" y="27" width="1848" height="1053" />
+    </state>
+    <state x="659" y="259" width="672" height="678" key="search.everywhere.popup/72.27.1848.1053@72.27.1848.1053" timestamp="1607612331842" />
     <state x="721" y="467" width="540" height="179" key="vcs.readOnlyHandler.ReadOnlyStatusDialog" timestamp="1607420484682">
       <screen x="72" y="27" width="1848" height="1053" />
     </state>
