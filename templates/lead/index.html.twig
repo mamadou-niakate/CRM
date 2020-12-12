@@ -2,61 +2,84 @@
 
 {% block title %}Prospects{% endblock %}
 
+{% block stylesheets %}
+    {{ parent() }}
+{% endblock %}
 {% block body %}
-<div class="container">
-    <a href="{{ path('add_lead') }}">
-        <button type="button" class="btn btn-light shadow float-right mt-5 mb-4  shadow bg-white rounded">
-            <span class="template_btn"><i class="fas fa-plus"></i> Ajouter un Prospect</span>
-        </button>
-    </a>
-</div>
-<div class="container-fluid">
-    <div class="table-responsive">
-        <fieldset>
-            <caption><h2>Liste des Contacts</h2></caption>
-            <table class="table table-striped">
-                <thead class="thead-dark">
-                <tr>
-                    <th scope="col">ID</th>
-                    <th scope="col">Prènom</th>
-                    <th scope="col">Nom</th>
-                    <th scope="col">Email</th>
-                    <th scope="col">Téléphone</th>
-                    <th scope="col">Website</th>
-                    <th scope="col">Industrie</th>
-                    <th scope="col">Rue</th>
-                    <th scope="col">Code Postale</th>
-                    <th scope="col">Ville</th>
-                    <th scope="col">Status</th>
-                    <th scope="col">Assigné à</th>
-                    <th scope="col" colspan="3">Actions</th>
-                </tr>
-                </thead>
-                <tbody>
-                {% for lead in leads %}
-                    {% if lead is not null and lead  is defined %}
-                        <tr>
-                            <th scope="row">{{ lead.id }}</th>
-                            <td>{{ lead.getFirstName() }}</td>
-                            <td>{{ lead.getLastName() }}</td>
-                            <td>{{ lead.email }}</td>
-                            <td>{{ lead.phone }}</td>
-                            <td><a href="{{ lead.website }}" target="_blank">{{ lead.website }}</a></td>
-                            <td>{{ lead.industry }}</td>
-                            <td>{{ lead.street }}</td>
-                            <td>{{ lead.zipcode }}</td>
-                            <td>{{ lead.city }}</td>
-                            <td>{{ lead.status }}</td>
-                            <td>{{ lead.getAssignedTo() }}</td>
-                            <td><a href="{{ path('lead_details', {id:lead.id}) }}"><i class="far fa-eye"></i></a></td>
-                            <td><a href="{{ path('edit_lead', {id:lead.id}) }}"><i class="far fa-edit"></i></a></td>
-                            <td><a href="{{ path('remove_lead', {id:lead.id}) }}"><i class="fas fa-trash-alt"></i></a></td>
-                        </tr>
-                    {% endif %}
-                {% endfor %}
-                </tbody>
-            </table>
-        </fieldset>
+    <div class="container">
+        <a href="{{ path('add_lead') }}">
+            <button type="button" class="btn btn-light shadow float-right mt-5 mb-4  shadow bg-white rounded">
+                <span class="template_btn"><i class="fas fa-plus"></i> Ajouter un Prospect</span>
+            </button>
+        </a>
     </div>
-</div>
+
+    <div class="container">
+        <div id="presidents" class="table-responsive-md table-responsive-sm table-responsive-lg">Loading...</div>
+    </div>
+
+    <div class="container-fluid">
+        <div class="table-responsive">
+            <fieldset>
+                <caption><h2>Liste des Prospects</h2></caption>
+                <table class="table table-striped">
+                    <thead class="thead-dark">
+                    <tr>
+                        <th scope="col">ID</th>
+                        <th scope="col">Prènom</th>
+                        <th scope="col">Nom</th>
+                        <th scope="col">Email</th>
+                        <th scope="col">Téléphone</th>
+                        <th scope="col">Website</th>
+                        <th scope="col">Industrie</th>
+                        <th scope="col">Rue</th>
+                        <th scope="col">Code Postale</th>
+                        <th scope="col">Ville</th>
+                        <th scope="col">Status</th>
+                        <th scope="col">Assigné à</th>
+                        <th scope="col" colspan="3">Actions</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    {% for lead in leads %}
+                        {% if lead is not null and lead  is defined %}
+                            <tr>
+                                <th scope="row">{{ lead.id }}</th>
+                                <td>{{ lead.getFirstName() }}</td>
+                                <td>{{ lead.getLastName() }}</td>
+                                <td>{{ lead.email }}</td>
+                                <td>{{ lead.phone }}</td>
+                                <td><a href="{{ lead.website }}" target="_blank">{{ lead.website }}</a></td>
+                                <td>{{ lead.industry }}</td>
+                                <td>{{ lead.street }}</td>
+                                <td>{{ lead.zipcode }}</td>
+                                <td>{{ lead.city }}</td>
+                                <td>{{ lead.status }}</td>
+                                <td>{{ lead.getAssignedTo() }}</td>
+                                <td><a href="{{ path('lead_details', {id:lead.id}) }}"><i class="far fa-eye"></i></a></td>
+                                <td><a href="{{ path('edit_lead', {id:lead.id}) }}"><i class="far fa-edit"></i></a></td>
+                                <td><a href="{{ path('remove_lead', {id:lead.id}) }}"><i class="fas fa-trash-alt"></i></a></td>
+                            </tr>
+                        {% endif %}
+                    {% endfor %}
+                    </tbody>
+                </table>
+            </fieldset>
+        </div>
+    </div>
+
+{% endblock %}
+
+{% block javascript %}
+    <!-- Insert this at the end of your body element, but before the closing tag -->
+    <script type="text/javascript" src="https://cdn.datatables.net/v/dt/jq-3.2.1/dt-1.10.16/datatables.min.js"></script>
+    <script src="{{ asset('bundles/datatables/js/datatables.js') }}"></script>
+    <script>
+        $(function() {
+            let table = $('#presidents');
+            if (table && table.initDataTables) {
+                table.initDataTables({{ datatable_settings(datatable) }});
+            }
+        });
+    </script>
 {% endblock %}

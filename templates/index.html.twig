@@ -1,0 +1,23 @@
+{% extends 'base.html.twig' %}
+
+{% block stylesheets %}
+    {{ parent() }}
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/v/dt/jq-3.2.1/dt-1.10.16/datatables.min.css"/>
+{% endblock %}
+{% block body %}
+    <div id="presidents" class="alert-warning">Loading...</div>
+
+{% endblock %}
+
+{% block javascripts %}
+    <script type="text/javascript" src="https://cdn.datatables.net/v/dt/jq-3.2.1/dt-1.10.16/datatables.min.js"></script>
+    <script src="{{ asset('bundles/datatables/js/datatables.js') }}"></script>
+    <script>
+        $(function() {
+            let table = $('#presidents');
+            if (table && table.initDataTables) {
+                table.initDataTables({{ datatable_settings(datatable) }});
+            }
+        });
+   </script>
+{% endblock %}

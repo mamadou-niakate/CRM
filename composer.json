@@ -13,6 +13,7 @@
         "doctrine/doctrine-migrations-bundle": "^3.0",
         "doctrine/orm": "^2.7",
         "easycorp/easyadmin-bundle": "^3.1",
+        "omines/datatables-bundle": "^0.5.1",
         "phpdocumentor/reflection-docblock": "^5.2",
         "sensio/framework-extra-bundle": "^5.6",
         "symfony/asset": "5.2.*",
