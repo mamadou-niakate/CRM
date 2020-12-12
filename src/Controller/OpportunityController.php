@@ -6,7 +6,11 @@ use App\Entity\Opportunity;
 use App\Form\OpportunityFormType;
 use App\Repository\OpportunityRepository;
 use Doctrine\ORM\EntityManagerInterface;
+use Omines\DataTablesBundle\Adapter\Doctrine\ORMAdapter;
+use Omines\DataTablesBundle\Column\TextColumn;
+use Omines\DataTablesBundle\DataTableFactory;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use Symfony\Component\Form\Extension\Core\Type\DateType;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
@@ -24,11 +28,38 @@ class OpportunityController extends AbstractController
 
     /**
      * @Route("/opportunity", name="opportunity")
+     * @param Request $request
+     * @param DataTableFactory $dataTableFactory
+     * @return Response
      */
-    public function index(): Response
+    public function index(Request $request, DataTableFactory $dataTableFactory): Response
     {
+        $table = $dataTableFactory->create()
+            ->add('amount', TextColumn::class, ['label' => 'Montant', 'className' => 'bold', 'searchable' => true])
+            //->add('date_due', TextColumn::class)
+            ->add('assigned_to', TextColumn::class, ['field' => 'assigned_to.first_name', 'label' => 'Assigné À', 'className' => 'bold', 'searchable' => true])
+            ->add('account', TextColumn::class, ['field' => 'account.account_name', 'label' => 'Relatif compte', 'className' => 'bold', 'searchable' => true])
+            ->add('lead', TextColumn::class, ['field' => 'lead.first_name','label' => 'Prospect', 'className' => 'bold', 'searchable' => true])
+            ->add('name', TextColumn::class, ['label' => 'Nom', 'className' => 'bold', 'searchable' => true])
+            ->add('status', TextColumn::class, ['field' => 'status.status', 'label' => 'Status', 'className' => 'bold', 'searchable' => true])
+            ->add('probability', TextColumn::class, ['label' => 'Probabilité', 'className' => 'bold', 'searchable' => true])
+            ->add('id', TextColumn::class, ['render' => function($value, $context) {
+                return sprintf('<a href="/opportunity_details/%u"><i class="far fa-eye"style="padding-left: 10px"></i></a>',$value) . ' ' .
+                    sprintf('<a href="/edit_opportunity/%u"><i class="far fa-edit" style="padding-left: 10px"></i></a>', $value). ' ' .
+                    sprintf('<a href="/remove_opportunity/%u" className="pl-5"><i class="fa fa-trash" style="padding-left: 10px; color: red"></i></a>', $value);
+            },'label' => 'Actions'])
+            ->createAdapter(ORMAdapter::class, [
+                'entity' => Opportunity::class
+            ])
+            ->handleRequest($request);
+
+        if($table->isCallback()) {
+            return $table->getResponse();
+        }
+
         return $this->render('opportunity/index.html.twig', [
-            'opportunities' => $this->opportunityRepository->findAll()
+            'opportunities' => $this->opportunityRepository->findAll(),
+            'datatable' => $table
         ]);
     }
 

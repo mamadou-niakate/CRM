@@ -2,50 +2,58 @@
 
 {% block title %}Hello OpportunityController!{% endblock %}
 
+{% block stylesheets %}
+    {{ parent() }}
+{% endblock %}
+
 {% block body %}
-<div class="container-fluid">
-    <div class="row mt-5">
-        <div class="col-6">
-            <div class="row float-left">
-                <div class="col p-4">
-                    <a href="{{ path('contact') }}">
-                        <button type="button" class="btn btn-light shadow float-right shadow bg-white rounded">
-                            <span class="template_btn"><i class="fas fa-users"></i> Contacts </span>
-                        </button>
-                    </a>
-                </div>
-                <div class="col p-4">
-                    <a href="{{ path('interaction') }}">
-                        <button type="button" class="btn btn-light shadow float-right shadow bg-white rounded">
-                            <span class="template_btn"><i class="far fa-calendar-check"></i> Activité/Tâches </span>
-                        </button>
-                    </a>
-                </div>
+    <div class="container-fluid">
+        <div class="row mt-5">
+            <div class="col-6">
+                <div class="row float-left">
+                    <div class="col p-4">
+                        <a href="{{ path('contact') }}">
+                            <button type="button" class="btn btn-light shadow float-right shadow bg-white rounded">
+                                <span class="template_btn"><i class="fas fa-users"></i> Contacts </span>
+                            </button>
+                        </a>
+                    </div>
+                    <div class="col p-4">
+                        <a href="{{ path('interaction') }}">
+                            <button type="button" class="btn btn-light shadow float-right shadow bg-white rounded">
+                                <span class="template_btn"><i class="far fa-calendar-check"></i> Activité/Tâches </span>
+                            </button>
+                        </a>
+                    </div>
 
 
+                </div>
             </div>
-        </div>
-        <div class="col-6">
-            <div class="row float-right">
-                <div class="col p-4">
-                    <a href="{{ path('add_opportunity') }}">
+            <div class="col-6">
+                <div class="row float-right">
+                    <div class="col p-4">
+                        <a href="{{ path('add_opportunity') }}">
+                            <button type="button" class="btn btn-light shadow float-right shadow bg-white rounded">
+                                <span class="template_btn"><i class="fas fa-plus"></i> Ajouter</span>
+                            </button>
+                        </a>
+                    </div>
+                    <div class="col p-4">
+                        <a href="#">
                         <button type="button" class="btn btn-light shadow float-right shadow bg-white rounded">
-                            <span class="template_btn"><i class="fas fa-plus"></i> Ajouter</span>
+                            <span class="template_btn"><i class="fas fa-cloud-download-alt"></i> Exporter</span>
                         </button>
-                    </a>
-                </div>
-                <div class="col p-4">
-                    <a href="#">
-                    <button type="button" class="btn btn-light shadow float-right shadow bg-white rounded">
-                        <span class="template_btn"><i class="fas fa-cloud-download-alt"></i> Exporter</span>
-                    </button>
-                    </a>
+                        </a>
+                    </div>
                 </div>
             </div>
         </div>
     </div>
-</div>
+
     <div class="container-fluid">
+        <div id="presidents" class="table-responsive-md table-responsive-sm table-responsive-lg">Loading...</div>
+    </div>
+    <!--div class="container-fluid">
         <div class="table-responsive">
             <fieldset>
                 <caption><h2>Liste des Affaires</h2></caption>
@@ -64,7 +72,7 @@
                     </tr>
                     </thead>
                     <tbody>
-                    {% for opportunity in opportunities %}
+                    {#% for opportunity in opportunities %}
                         {% if opportunity is not null and opportunity  is defined %}
                             <tr>
                                 <th scope="row">{{ opportunity.id }}</th>
@@ -80,10 +88,24 @@
                                 <td><a href="{{ path('remove_opportunity', {id:opportunity.id}) }}"><i class="fas fa-trash-alt"></i></a></td>
                             </tr>
                         {% endif %}
-                    {% endfor %}
+                    {% endfor %#}
                     </tbody>
                 </table>
             </fieldset>
         </div>
-    </div>
+    </div-->
+{% endblock %}
+
+{% block javascript %}
+<!-- Insert this at the end of your body element, but before the closing tag -->
+<script type="text/javascript" src="https://cdn.datatables.net/v/dt/jq-3.2.1/dt-1.10.16/datatables.min.js"></script>
+<script src="{{ asset('bundles/datatables/js/datatables.js') }}"></script>
+    <script>
+        $(function() {
+            let table = $('#presidents');
+            if (table && table.initDataTables) {
+                table.initDataTables({{ datatable_settings(datatable) }}, { searching: true,});
+            }
+        });
+    </script>
 {% endblock %}

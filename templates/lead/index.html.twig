@@ -5,6 +5,7 @@
 {% block stylesheets %}
     {{ parent() }}
 {% endblock %}
+
 {% block body %}
     <div class="container">
         <a href="{{ path('add_lead') }}">
@@ -14,11 +15,11 @@
         </a>
     </div>
 
-    <div class="container">
+    <div class="container-fluid">
         <div id="presidents" class="table-responsive-md table-responsive-sm table-responsive-lg">Loading...</div>
     </div>
 
-    <div class="container-fluid">
+    <!--div class="container-fluid">
         <div class="table-responsive">
             <fieldset>
                 <caption><h2>Liste des Prospects</h2></caption>
@@ -41,7 +42,7 @@
                     </tr>
                     </thead>
                     <tbody>
-                    {% for lead in leads %}
+                    {#% for lead in leads %}
                         {% if lead is not null and lead  is defined %}
                             <tr>
                                 <th scope="row">{{ lead.id }}</th>
@@ -61,12 +62,12 @@
                                 <td><a href="{{ path('remove_lead', {id:lead.id}) }}"><i class="fas fa-trash-alt"></i></a></td>
                             </tr>
                         {% endif %}
-                    {% endfor %}
+                    {% endfor %#}
                     </tbody>
                 </table>
             </fieldset>
         </div>
-    </div>
+    </div-->
 
 {% endblock %}
 
@@ -78,7 +79,7 @@
         $(function() {
             let table = $('#presidents');
             if (table && table.initDataTables) {
-                table.initDataTables({{ datatable_settings(datatable) }});
+                table.initDataTables({{ datatable_settings(datatable) }}, { searching: true,});
             }
         });
     </script>
